@@ -10,7 +10,7 @@
     "react-dom": "latest"
   },
   "devDependencies": {
-    "@vitejs/plugin-react": "^6.0.2",
-    "vite": "^8.0.16"
-  }
+    "build": "node ./node_modules/vite/bin/vite.js build" 
+    
+  } 
 }
