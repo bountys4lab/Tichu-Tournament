@@ -278,8 +278,8 @@ function App() {
       <header className="hero">
         <div>
           <p className="eyebrow">Tichu Tournament</p>
-          <h1>Tichu Cup</h1>
-          <p className="sub">12 → 6 → groups → 4 → final</p>
+          <h1>ULTREX CUP</h1>
+          <p className="sub"> TOΥΡΝΟΥΑ ΜΕ ΤΑ ΜΕΛΗ - ΙΟΥΝΙΟΣ </p>
         </div>
         <div className="top-actions">
           <button onClick={() => setView("admin-login")}>Admin</button>
@@ -350,11 +350,11 @@ function App() {
                 <p className="eyebrow">Stage 2</p>
                 <h2>Group Stage — 2 Groups of 3</h2>
               </div>
-              {view === "admin" && <button onClick={randomizeGroups}>Randomize 6 Winners</button>}
+              {view === "admin" && <button onClick={randomizeGroups}>GENERATE</button>}
             </div>
 
             {!groupsReady ? (
-              <p className="muted">Όταν τελειώσει το Round 1, πάτα “Randomize 6 Winners”.</p>
+              <p className="muted">Όταν τελειώσει το Round 1, θα διαμορφωθούν οι ομίλοι”.</p>
             ) : (
               <>
                 <div className="groups">
