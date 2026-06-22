@@ -363,12 +363,14 @@ function App() {
                 </div>
                 <div className="grid">
                   {state.groupMatches.map(match => (
-                <MatchCard key={match.id}  
-                state={state} match={match} 
-                canEditScores={canEditScores} 
-                onUpdate={m => updateMatch
-                ("stage1", m)} />                  ))}
-                                </div>
+                <MatchCard
+                  key={match.id}
+                  state={state}
+                  match={match}
+                  canEditScores={canEditScores}
+                  onUpdate={m => updateMatch("groups", m)}
+                />                ))}
+                </div>
               </>
             )}
           </section>
@@ -384,30 +386,33 @@ function App() {
                 {view === "admin" && <button onClick={generateFinal}>Generate Final</button>}
               </div>
             </div>
+          {state.semifinals.length > 0 ? (
+            <div className="grid finals">
+              {state.semifinals.map(match => (
+                <MatchCard
+                  key={match.id}
+                  state={state}
+                  match={match}
+                  canEditScores={canEditScores}
+                  onUpdate={m => updateMatch("semis", m)}
+                />
+              ))}
+            </div>
+          ) : (
+            <p className="muted">Top 2 από κάθε όμιλο πάνε ημιτελικά: A1 vs B2 και B1 vs A2.</p>
+          )}
 
-            {state.semifinals.length > 0 ? (
-              <div className="grid finals">
-                {state.semifinals.map(match => (
-                <MatchCard key={match.id} 
-                state={state} match={match}
-                canEditScores={canEditScores} 
-                onUpdate={m => updateMatch
-                ("stage1", m)} />                ))}
-              </div>
-            ) : (
-              <p className="muted">Top 2 από κάθε όμιλο πάνε ημιτελικά: A1 vs B2 και B1 vs A2.</p>
-            )}
-
-            {state.final && (
-              <div className="final-box">
-                <h3>Final</h3>
-            <MatchCard key={match.id}
-            state={state} match={match}
-              canEditScores={canEditScores} 
-              onUpdate={m => updateMatch
-                ("stage1", m)} />              
-                </div>
-            )}
+          {state.final && (
+  <div className="final-box">
+    <h3>Final</h3>
+    <MatchCard
+      state={state}
+      match={state.final}
+      canEditScores={canEditScores}
+      onUpdate={m => updateMatch("final", m)}
+    />
+  </div>
+)}
 
             {state.champion && (
               <div className="champion">
